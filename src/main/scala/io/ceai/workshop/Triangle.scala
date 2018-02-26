@@ -10,16 +10,12 @@ object Triangle {
 
   def split(t: Triangle): Seq[Triangle] = {
     if (t.height > 2) {
-      Seq(
-        Triangle(t.top, t.height / 2),
-        Triangle(Point(t.top.column - t.height / 2, t.top.row + t.height / 2), t.height / 2),
-        Triangle(Point(t.top.column + t.height / 2, t.top.row + t.height / 2), t.height / 2)
-      )
+      Seq(???, ???, ???)
     } else {
-      Seq(t)
+      Seq(???)
     }
   }
 
   @tailrec
-  def splitN(acc: Seq[Triangle], steps: Int): Seq[Triangle] = if (steps < 1) acc else splitN(acc.flatMap(split), steps - 1)
+  def splitN(acc: Seq[Triangle], steps: Int): Seq[Triangle] = if (steps < 1) ??? else splitN(???, steps - 1)
 }

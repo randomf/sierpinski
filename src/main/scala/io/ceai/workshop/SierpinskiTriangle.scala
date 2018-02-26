@@ -17,32 +17,29 @@ object SierpinskiTriangle {
     * HINT: Use Seq.tabulate or Seq.fill
     * @return board filled with EmptyChars
     */
-  val emptyBoard: Board = Seq.tabulate(Rows, Columns)((_, _) => EmptyChar)
+  val emptyBoard: Board = ???
 
   /**
     * Transforms board instance to printable multiline string
     * HINT: Use String.mkString and Seq.map functions
     */
-  def boardToString(b: Board): String = b.map(_.mkString("")).mkString("\n")
+  def boardToString(b: Board): String = ???
 
   /**
     * Puts FilledChar at a position of a triangle
     */
   def applyTriangle(b: Board, t: Triangle): Board = {
     b.zipWithIndex.map {
-      case (row, rowNumber) if t.top.row until t.top.row + t.height contains rowNumber =>
-        row.slice(0, t.top.column - (rowNumber - t.top.row)) ++
-          Seq.fill(2 * (rowNumber - t.top.row) + 1)(FilledChar) ++
-          row.slice(t.top.column + (rowNumber - t.top.row) + 1, Columns)
-      case (row, _) => row
+      case (row, rowNumber) if t.top.row until t.top.row + t.height contains rowNumber => ???
+      case (row, _) => ???
     }
   }
 
   def main(args: Array[String]): Unit = {
     assert(MaxSteps > 0, "There has to be at least one recursion step")
-    val triangles = Triangle.splitN(Seq(Triangle.largest), MaxSteps - 1)
-    val board = triangles.foldLeft(emptyBoard)(applyTriangle)
-    println(boardToString(board))
+    val triangles = ???
+    val board = ???
+    println(???)
   }
 
 }
