@@ -40,7 +40,7 @@ object SierpinskiTriangle {
 
   def main(args: Array[String]): Unit = {
     assert(MaxSteps > 0, "There has to be at least one recursion step")
-    val triangles = Triangle.splitN(Seq(Triangle.largest), MaxSteps)
+    val triangles = Triangle.splitN(Seq(Triangle.largest), MaxSteps - 1)
     val board = triangles.foldLeft(emptyBoard)(applyTriangle)
     println(boardToString(board))
   }

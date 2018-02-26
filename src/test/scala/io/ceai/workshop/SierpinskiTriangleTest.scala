@@ -2,6 +2,7 @@ package io.ceai.workshop
 
 import org.scalatest.{FlatSpec, Matchers}
 
+/** Test routines for Sierpinski triangle. Tests work only with default settings (32 x 63 board) */
 class SierpinskiTriangleTest extends FlatSpec with Matchers {
 
   behavior of "SierpinskiTriangle"
@@ -101,7 +102,22 @@ class SierpinskiTriangleTest extends FlatSpec with Matchers {
   }
 
   it should "leave small triangle as it is" in {
+    val small = Triangle(Point(0, 3), 2)
+    Triangle.split(small) should be (Seq(small))
+  }
 
+  it should "recursively split triangle in two steps" in {
+    Triangle.splitN(Seq(Triangle.largest), 2) should contain allElementsOf Seq(
+      Triangle(Point(31, 0), 8),
+      Triangle(Point(23, 8), 8),
+      Triangle(Point(39, 8), 8),
+      Triangle(Point(15, 16), 8),
+      Triangle(Point(7, 24), 8),
+      Triangle(Point(23, 24), 8),
+      Triangle(Point(47, 16), 8),
+      Triangle(Point(39, 24), 8),
+      Triangle(Point(55, 24), 8)
+    )
   }
 
 }

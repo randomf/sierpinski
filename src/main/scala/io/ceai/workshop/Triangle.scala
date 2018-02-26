@@ -21,5 +21,5 @@ object Triangle {
   }
 
   @tailrec
-  def splitN(acc: Seq[Triangle], steps: Int): Seq[Triangle] = if (steps <= 1) acc else splitN(acc.flatMap(split), steps - 1)
+  def splitN(acc: Seq[Triangle], steps: Int): Seq[Triangle] = if (steps < 1) acc else splitN(acc.flatMap(split), steps - 1)
 }
